@@ -24,4 +24,9 @@ public class JpaAllUser implements AllUser {
   public boolean existsByUserId(UserId userId) {
     return jpaAllUserPersistence.existsByUserId(userId);
   }
+
+  @Override
+  public User findByIdWithPessimisticLock(Long userId) {
+    return jpaAllUserPersistence.findByIdWithPessimisticLock(userId).orElseThrow(NoSuchUserException::new);
+  }
 }

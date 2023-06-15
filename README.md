@@ -8,7 +8,13 @@
 ### 주문
 - 주문 실패 case
   - 가게가 현재 열려 있지 않은 경우
-    - 영업시간이 아닌 경우
-    - 가게주인이 임의로 닫은 경우
   - 특정 메뉴 주문시 해당 메뉴가 품절인 경우
   - 고객의 잔금이 부족한 경우
+  - 
+
+### 시행착오
+```sql
+where store.is_open = true
+and menu.quantity >= :orderCount
+and orderer.money >= menu.price * orderCount
+```

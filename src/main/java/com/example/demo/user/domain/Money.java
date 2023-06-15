@@ -15,4 +15,8 @@ public class Money {
 
   public Money(int value){this.value = value;}
 
+  public void decrease(int quantity, int price) {
+    this.value -= quantity * price;
+  }
+
 }
